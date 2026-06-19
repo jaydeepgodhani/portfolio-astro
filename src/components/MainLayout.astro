@@ -1,0 +1,17 @@
+---
+import Header from "./Header.astro";
+
+const { ...props } = Astro.props;
+---
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <Header />
+    <!-- Additional head elements -->
+  </head>
+  <body>
+    <slot />
+    <!-- Page content goes here -->
+  </body>
+</html>

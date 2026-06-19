@@ -1,20 +1,12 @@
 ---
+import { paragraphs } from "../helpers/utilities";
+import Navigation from "../components/Navigation.astro";
 import "../styles/global.css";
-const pageTitle = "Index Title";
+const heading = "I'm Jaydeep Godhani";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
-    <h1>Astro Index Page</h1>
-    <p>{pageTitle}</p>
-  </body>
-</html>
+<Navigation />
+<h1 class="font-heading text-6xl py-24 text-primary">
+  &#128075;&emsp;{heading}
+</h1>
+{paragraphs.aboutme.map((item, id) => <p>{item}</p>)}

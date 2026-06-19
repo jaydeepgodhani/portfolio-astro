@@ -1,0 +1,43 @@
+---
+
+---
+
+<script>
+  import { showTime } from "../helpers/utilities";
+  const countdownElement = document.getElementById("countdown")!;
+  function updateTimer() {
+    countdownElement.textContent = showTime();
+  }
+  setInterval(updateTimer, 10000);
+  updateTimer();
+</script>
+
+<div
+  class="w-screen sticky top-0 backdrop-opacity-97 backdrop-blur-[5px] z-10 bg-bg/40"
+>
+  <div class="flex items-center flex-row justify-center">
+    <div class="w-6/12 py-3 px-4">
+      <nav>
+        <ul
+          class="w-full flex flex-col text-xl items-center lg:flex-row justify-between"
+        >
+          <li class="">
+            <a
+              href="/"
+              class="border-b-0 no-underline shadow-none hover:shadow-none text-primary"
+            >
+              <div id="countdown" class="timer-display">10:00</div>
+            </a>
+          </li>
+          <div class="flex flex-row mt-3 justify-center lg:mt-0">
+            <li class="mx-4">Experience</li>
+            <li class="mx-4">Projects</li>
+            <li class="mx-4">Posts</li>
+            <li class="mx-4">Knowledge</li>
+          </div>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <hr class="w-full text-secondary border" />
+</div>
