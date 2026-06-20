@@ -1,12 +1,15 @@
 ---
 import { paragraphs } from "../helpers/utilities";
-import Navigation from "../components/Navigation.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
 const heading = "I'm Jaydeep Godhani";
 ---
 
-<Navigation />
-<h1 class="font-heading text-6xl py-24 text-primary">
-  &#128075;&emsp;{heading}
-</h1>
-{paragraphs.aboutme.map((item, id) => <p>{item}</p>)}
+<BaseLayout>
+  <main class="mt-8 mb-8">
+    <h1 class="font-heading text-6xl py-24 text-primary">
+      &#128075;&emsp;{heading}
+    </h1>
+  </main>
+  {paragraphs.aboutme.map((item, id) => <p>{item}</p>)}
+</BaseLayout>
