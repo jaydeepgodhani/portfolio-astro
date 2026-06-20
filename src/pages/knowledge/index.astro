@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import Heading from "../../components/Heading.astro";
+import SVG from "../../components/SVG.astro";
+import { linkSVG } from "../../helpers/utilities";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const allKnowledge = await getCollection("knowledge");
+---
+
+<BaseLayout>
+  <div class="mt-12 mb-4">
+    <Heading text={"Knowledge Base"} />
+    <ul>
+      {
+        allKnowledge.map((obj) => (
+          <div class="flex flex-row py-4 ml-8">
+            <span class="shadow-none hover:shadow-none block text-primary w-auto">
+              {"•"}&emsp;
+            </span>
+            <a
+              href={`/knowledge/${obj.id}`}
+              class="shadow-none hover:shadow-none bg-quote-bg block text-primary w-auto flex items-center"
+            >
+              {obj.data.title} &ensp; <SVG view="0 0 24 24" svg={linkSVG} />
+            </a>
+          </div>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>

@@ -1,7 +1,7 @@
 {
-  "$ref": "#/definitions/blog",
+  "$ref": "#/definitions/posts",
   "definitions": {
-    "blog": {
+    "posts": {
       "type": "object",
       "properties": {
         "title": {
