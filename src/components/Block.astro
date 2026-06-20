@@ -1,0 +1,36 @@
+---
+import { externalArrowSVG } from "../helpers/utilities";
+import Para from "./Para.astro";
+const { header, body, footer, link = null } = Astro.props;
+---
+
+<div class="my-2">
+  <p class="my-5 whitespace-pre-line text-2xl leading-7 animate-fade">
+    {
+      !link ? (
+        header
+      ) : (
+        <a href={link} target="_blank" rel="noopener">
+          <span class="flex items-center">
+            <span class="hover:underline">{header}</span> &ensp;
+            <svg
+              stroke="currentColor"
+              fill="none"
+              stroke-width="2"
+              viewBox="0 0 24"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d={externalArrowSVG} />
+            </svg>
+          </span>
+        </a>
+      )
+    }
+  </p>
+  <Para>{body}</Para>
+  <Para>{footer}</Para>
+</div>
