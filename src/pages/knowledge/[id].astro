@@ -1,0 +1,19 @@
+---
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const knowledge = await getCollection("knowledge");
+  return knowledge.map((kn) => ({
+    params: { id: kn.id },
+    props: { kn },
+  }));
+}
+
+const { kn } = Astro.props;
+const { Content } = await render(kn);
+---
+
+<article>
+  <h1>{kn.data.title}</h1>
+  <Content />
+</article>

@@ -8,7 +8,7 @@ import PostList from "../../components/PostList.astro";
 const allPosts = await getCollection("posts");
 const allTags: any[] = [];
 const content: any[] = [];
-allPosts.forEach((e) => {allTags.push(e.data.tags); content.push(e.data)});
+allPosts.forEach((e) => {allTags.push(e.data.tags); content.push({id: e.id, ...e.data})});
 const allTagsAsSet = new Set(allTags.flat());
 const tags = [...allTagsAsSet].sort();
 ---
