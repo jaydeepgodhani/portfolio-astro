@@ -1,5 +1,7 @@
 ---
 title: "First Blog"
+tags: ['javascript', 'bit']
+date: "2026-02-14"
 ---
 # My Blog Post 001
 

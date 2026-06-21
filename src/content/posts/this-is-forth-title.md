@@ -1,5 +1,7 @@
 ---
 title: "Fourth Blog"
+tags: ['javascript', 'xylo']
+date: "2026-05-14"
 ---
 # My Blog Post 004
 

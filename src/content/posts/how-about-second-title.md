@@ -1,5 +1,7 @@
 ---
 title: "Second Blog"
+tags: ['xylo', 'bit']
+date: "2026-03-14"
 ---
 # My Blog Post 002
 

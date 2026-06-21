@@ -1,0 +1,39 @@
+---
+import { dateToReadable, getMapOfPosts } from "../helpers/utilities";
+
+const { content } = Astro.props;
+console.log(content);
+
+const postMap = getMapOfPosts(content);
+const years = [...postMap.keys()];
+---
+
+<div class="space-y-2">
+  {
+    years.map((year) => (
+      <div>
+        <h2 class="font-heading text-2xl py-6 text-primary">{year}</h2>
+        {postMap.get(year).map((obj: any) => (
+          <div class="flex flex-row py-4">
+            <div class="w-1/6 text-primary">{dateToReadable(obj.date)}</div>
+            <div class="w-auto">
+              <div>
+                <a
+                  href={`/posts/${obj.link}`}
+                  class="shadow-none hover:shadow-none block mb-2 text-primary"
+                >
+                  {obj.title}
+                </a>
+                {obj.tags?.map((t: any) => (
+                  <span class="inline-block py-1 px-2 mr-4 rounded-md bg-[rgb(var(--color-code-bg))] text-secondary text-sm">
+                    #{t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    ))
+  }
+</div>

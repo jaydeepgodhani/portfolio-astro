@@ -7,12 +7,24 @@
         "title": {
           "type": "string"
         },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
         "$schema": {
           "type": "string"
         }
       },
       "required": [
-        "title"
+        "title",
+        "tags",
+        "date"
       ],
       "additionalProperties": false
     }
