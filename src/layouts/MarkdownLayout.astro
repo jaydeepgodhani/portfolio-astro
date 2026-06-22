@@ -36,17 +36,20 @@ const { title, date, tags } = Astro.props;
       }
       .wrapper :global(pre) {
       }
-      .wrapper :global(code, strong, li, thead, tbody, th) {
-        @apply text-secondary font-bold;
+      .wrapper :global(code, strong) {
+        @apply text-secondary animate-fade font-bold;
+      }
+      .wrapper :global(li, thead, tbody, th) {
+        @apply text-secondary animate-fade;
       }
       .wrapper :global(a) {
         @apply underline italic;
       }
       .wrapper :global(ol) {
-        @apply text-secondary font-bold list-decimal pl-8;
+        @apply text-secondary list-decimal pl-8;
       }
       .wrapper :global(ul) {
-        @apply text-secondary font-bold list-disc pl-8;
+        @apply text-secondary list-disc pl-8;
       }
       .wrapper :global(table) {
         @apply text-secondary border-2 w-full animate-fade;
