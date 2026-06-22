@@ -7,38 +7,38 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout pageTitle="Projects">
-  <div class="mt-12 mb-4">
-    <Heading text={"Corporate Projects"} />
-    <div class="ml-8">
-      {
-        textBlocks.corpprojects.map((item, id) => (
-          <div>
-            <Block
-              header={item[0]}
-              body={item[1]}
-              footer={item[2]}
-              link={item[3]}
-            />
-            <Horizontal />
-          </div>
-        ))
-      }
+    <div class="mt-12 mb-4">
+      <Heading text={"Corporate Projects"} />
+      <div class="ml-8">
+        {
+          textBlocks.corpprojects.map((item, id) => (
+            <div>
+              <Block
+                header={item[0]}
+                body={item[1]}
+                footer={item[2]}
+                link={item[3]}
+              />
+              <Horizontal />
+            </div>
+          ))
+        }
+      </div>
+      <Heading text={"Personal Exploration"} />
+      <div class="ml-8">
+        {
+          textBlocks.personalprojects.map((item, id) => (
+            <div>
+              <Block
+                header={item[0]}
+                body={item[1]}
+                footer={item[2]}
+                link={item[3]}
+              />
+              <Horizontal />
+            </div>
+          ))
+        }
+      </div>
     </div>
-    <Heading text={"Personal Exploration"} />
-    <div class="ml-8">
-      {
-        textBlocks.personalprojects.map((item, id) => (
-          <div>
-            <Block
-              header={item[0]}
-              body={item[1]}
-              footer={item[2]}
-              link={item[3]}
-            />
-            <Horizontal />
-          </div>
-        ))
-      }
-    </div>
-  </div>
 </BaseLayout>

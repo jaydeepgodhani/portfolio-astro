@@ -36,7 +36,6 @@
   --color-code-bg: "rgb(var(--color-code-bg))";
   --color-quote-bg: "rgb(var(--color-quote-bg))";
   --shadow-3xl: 0px 0px 20px -4px rgb(var(--color-primary));
-  --bg-link: linear-gradient(transparent 50%, rgb(var(--color-link)));
 
   --bg-hr: linear-gradient(
     to right,
@@ -58,6 +57,7 @@
   /* Other customizations */
   --backdrop-blur-xs: 7px;
   --underline-offset-30: -0.5rem;
+  --bd-filter: backdrop-blur-ld backdrop-brightness-110 backdrop-saturate-120;
 
   --animate-fade: fadeIn 0.3s ease-in-out forwards;
 }

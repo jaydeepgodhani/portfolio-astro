@@ -1,4 +1,5 @@
 ---
+import { FramerDiv } from "../components/FramerDiv";
 import { paragraphs } from "../helpers/utilities";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
@@ -6,10 +7,12 @@ const heading = "I'm Jaydeep Godhani";
 ---
 
 <BaseLayout pageTitle="JD's Home">
-  <main class="mt-8 mb-8">
-    <h1 class="font-heading text-6xl py-24 text-primary">
-      &#128075;&emsp;{heading}
-    </h1>
-  </main>
+  <FramerDiv client:only>
+    <main class="mt-8 mb-8">
+      <h1 class="font-heading text-6xl py-24 text-primary">
+        &#128075;&emsp;{heading}
+      </h1>
+    </main>
+  </FramerDiv>
   {paragraphs.aboutme.map((item, id) => <p>{item}</p>)}
 </BaseLayout>

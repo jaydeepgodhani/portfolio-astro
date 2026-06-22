@@ -5,15 +5,16 @@
 <script>
   import { showTime } from "../helpers/utilities";
   const countdownElement = document.getElementById("countdown")!;
+  countdownElement.textContent = showTime();
   function updateTimer() {
     countdownElement.textContent = showTime();
   }
   setInterval(updateTimer, 10000);
-  updateTimer();
+  // updateTimer();
 </script>
 
 <div
-  class="w-screen sticky top-0 backdrop-opacity-97 backdrop-blur-[5px] z-10 bg-bg/40"
+  class="w-screen sticky top-0 backdrop-opacity-99 backdrop-blur-sm z-10 bg-bg/70"
 >
   <div class="flex items-center flex-row justify-center">
     <div class="w-6/12 py-4 px-4">

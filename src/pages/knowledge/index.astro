@@ -8,24 +8,24 @@ const allKnowledge = await getCollection("knowledge");
 ---
 
 <BaseLayout pageTitle="Knowledge Base">
-  <div class="mt-12 mb-4">
-    <Heading text={"Knowledge Base"} />
-    <ul>
-      {
-        allKnowledge.map((obj) => (
-          <div class="flex flex-row py-4 ml-8">
-            <span class="shadow-none hover:shadow-none block text-primary w-auto">
-              {"•"}&emsp;
-            </span>
-            <a
-              href={`/knowledge/${obj.id}`}
-              class="shadow-none hover:shadow-none bg-quote-bg block text-primary w-auto flex items-center"
-            >
-              {obj.data.title} &ensp; <SVG view="0 0 24 24" svg={linkSVG} />
-            </a>
-          </div>
-        ))
-      }
-    </ul>
-  </div>
+    <main class="mt-12 mb-4">
+      <Heading text={"Knowledge Base"} />
+      <ul class="animate-fade">
+        {
+          allKnowledge.map((obj) => (
+            <div class="flex flex-row py-4 ml-8">
+              <span class="shadow-none hover:shadow-none block text-primary w-auto">
+                {"•"}&emsp;
+              </span>
+              <a
+                href={`/knowledge/${obj.id}`}
+                class="shadow-none hover:shadow-none bg-quote-bg text-primary w-auto flex items-center"
+              >
+                {obj.data.title} &ensp; <SVG view="0 0 24 24" svg={linkSVG} />
+              </a>
+            </div>
+          ))
+        }
+      </ul>
+    </main>
 </BaseLayout>

@@ -1,5 +1,6 @@
 ---
 import Footer from "../components/Footer.astro";
+import { FramerDiv } from "../components/FramerDiv";
 import Header from "../components/Header.astro";
 import MainLayout from "../components/MainLayout.astro";
 import Navigation from "../components/Navigation.astro";
@@ -19,8 +20,10 @@ const { pageTitle } = Astro.props;
   <body>
     <Navigation />
     <MainLayout>
-      <slot />
-      <Footer />
+    <FramerDiv client:only>
+        <slot />
+        <Footer />
+      </FramerDiv>
     </MainLayout>
   </body>
 </html>
