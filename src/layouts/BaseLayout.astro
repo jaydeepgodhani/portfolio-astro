@@ -17,13 +17,15 @@ const { pageTitle } = Astro.props;
     <Header />
     <title>{pageTitle}</title>
   </head>
-  <body>
-    <Navigation />
-    <MainLayout>
-    <FramerDiv client:only>
-        <slot />
-        <Footer />
-      </FramerDiv>
-    </MainLayout>
-  </body>
+      <body>
+        <Navigation transition:persist />
+        <MainLayout>
+          <FramerDiv client:only>
+            <slot />
+            <Footer transition:persist />
+          </FramerDiv>
+        </MainLayout>
+      </body>
+    </ViewTransitions>
+  </head>
 </html>

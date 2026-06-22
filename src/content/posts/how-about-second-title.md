@@ -1,9 +1,9 @@
 ---
 title: "Second Blog"
 tags: ['xylo', 'bit']
-date: "2026-03-14"
+date: "2025-08-11"
 ---
-# My Blog Post 002
+## My Blog Post 002
 
 This is a paragraph with some inline code: `console.log('Hello World');`Inline code should display as expected in-line not in the new line. The content in this paragraph is to be long enough to span lines in multiple rows in the page so that it would look nice as a lenghty paragrapgh.
 
@@ -11,7 +11,7 @@ Here's another paragraph 002.
 
 > This is a quote from someone important.
 
-## Code Block Example
+### Code Block Example
 
 ```javascript
 function add(a, b) {

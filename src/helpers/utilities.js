@@ -90,7 +90,11 @@ export function getMapOfPosts(content) {
       mapOfPosts.set(num, [obj]);
     }
   }
-  return mapOfPosts;
+  const sortedNumericMap = new Map(
+    [...mapOfPosts].sort(([aKey], [bKey]) => bKey - aKey)
+  );
+
+  return sortedNumericMap;
 }
 
 export function dateToReadable(date) {

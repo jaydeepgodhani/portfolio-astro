@@ -72,6 +72,13 @@ const { title, date, tags } = Astro.props;
         <article
           class="wrapper transition-opacity duration-300 opacity-100 animate-fade mt-12"
         >
+          <div class="flex items-center justify-between">
+            <h1>{title}</h1>
+            <span>{tags.map((item: any) => <span>{item}&nbsp;</span>)} {date}</span>
+          </div>
+          <hr class="text-secondary border" />
+          <br />
+          <br />
           <slot />
         </article>
         <Footer />
