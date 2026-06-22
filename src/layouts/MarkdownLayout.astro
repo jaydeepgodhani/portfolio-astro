@@ -1,7 +1,6 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import MainLayout from "../components/MainLayout.astro";
 import Navigation from "../components/Navigation.astro";
 import "../styles/global.css";
 const { title, date, tags } = Astro.props;
@@ -16,14 +15,62 @@ const { title, date, tags } = Astro.props;
     <Header />
     <title>{title}</title>
     <style>
-
+      @reference "../styles/global.css";
+      .wrapper :global(h1) {
+        @apply font-heading py-6 text-primary scroll-mt-12.5 text-4xl;
+      }
+      .wrapper :global(h2) {
+        @apply font-heading py-6 text-primary scroll-mt-12.5 text-3xl;
+      }
+      .wrapper :global(h3) {
+        @apply font-heading py-6 text-primary scroll-mt-12.5 text-2xl;
+      }
+      .wrapper :global(h4) {
+        @apply font-heading py-6 text-primary scroll-mt-12.5 text-xl;
+      }
+      .wrapper :global(p) {
+        @apply my-5 whitespace-pre-line text-secondary leading-7 animate-fade;
+      }
+      .wrapper :global(blockquote) {
+        @apply pl-4 border-l-4 bg-quote-bg border-primary my-1 animate-fade;
+      }
+      .wrapper :global(pre) {
+      }
+      .wrapper :global(code, strong, li, thead, tbody, th) {
+        @apply text-secondary font-bold;
+      }
+      .wrapper :global(a) {
+        @apply underline italic;
+      }
+      .wrapper :global(ol) {
+        @apply text-secondary font-bold list-decimal pl-8;
+      }
+      .wrapper :global(ul) {
+        @apply text-secondary font-bold list-disc pl-8;
+      }
+      .wrapper :global(table) {
+        @apply text-secondary border-2 w-full animate-fade;
+      }
+      .wrapper :global(tr) {
+        @apply text-secondary border-b-2 animate-fade;
+      }
+      .wrapper :global(td) {
+        @apply text-secondary py-2 px-2 align-top animate-fade;
+      }
+      .wrapper :global(hr) {
+        @apply text-secondary;
+      }
     </style>
   </head>
   <body>
     <Navigation />
-    <MainLayout>
-      <slot />
-      <Footer />
-    </MainLayout>
+    <div class="w-screen flex bg-bg min-h-screen flex-col items-center">
+      <div class="2xl:w-1/2 px-4 lg:w-3/4">
+        <div class="wrapper">
+          <slot />
+        </div>
+        <Footer />
+      </div>
+    </div>
   </body>
 </html>
