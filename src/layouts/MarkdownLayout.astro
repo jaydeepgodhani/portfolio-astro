@@ -3,7 +3,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Navigation from "../components/Navigation.astro";
 import "../styles/global.css";
-const { title, date, tags } = Astro.props;
+const { title, date='', tags=[] } = Astro.props;
 ---
 
 <html lang="en">

@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Heading from "../../components/Heading.astro";
 import PostList from "../../components/PostList.astro";
+import TagFilter from "../../components/TagFilter.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 const allPosts = await getCollection("posts");
 const allTags: any[] = [];
@@ -16,7 +17,8 @@ const tags = [...allTagsAsSet].sort();
 
 <BaseLayout pageTitle="Posts">
   <div class="mt-12 mb-4">
-    <Heading text={"Posts"} />
+    <Heading text={"Tags"} />
+    <TagFilter tags={tags} />
     <PostList content={content} />
   </div>
 </BaseLayout>
