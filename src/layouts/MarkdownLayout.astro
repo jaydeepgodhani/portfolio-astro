@@ -3,7 +3,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Navigation from "../components/Navigation.astro";
 import "../styles/global.css";
-const { title, date='', tags=[] } = Astro.props;
+const { title, date = "", tags = [] } = Astro.props;
 ---
 
 <html lang="en">
@@ -35,6 +35,7 @@ const { title, date='', tags=[] } = Astro.props;
         @apply pl-4 border-l-4 bg-quote-bg border-primary my-1 animate-fade;
       }
       .wrapper :global(pre) {
+        @apply relative py-4 px-4 rounded-md bg-code-bg text-secondary text-sm break-all wrap-break-word whitespace-pre-wrap;
       }
       .wrapper :global(code, strong) {
         @apply text-secondary animate-fade font-bold;
@@ -74,7 +75,9 @@ const { title, date='', tags=[] } = Astro.props;
         >
           <div class="flex items-center justify-between">
             <h1>{title}</h1>
-            <span>{tags.map((item: any) => <span>{item}&nbsp;</span>)} {date}</span>
+            <span
+              >{tags.map((item: any) => <span>{item}&nbsp;</span>)} {date}</span
+            >
           </div>
           <hr class="text-secondary border" />
           <br />
