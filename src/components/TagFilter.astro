@@ -1,0 +1,23 @@
+---
+// TagFilter.astro
+const { tags } = Astro.props;
+---
+
+<div class="mb-4">
+  {
+    tags.map((val: string) => (
+      <span
+        id={val}
+        class="relative inline-block py-1 px-2 mr-4 rounded-md bg-code-bg"
+        data-value={val}
+      >
+        <span
+          class="absolute inset-0 rounded-md pointer-events-none"
+          aria-hidden="true"
+        />
+        <span class="relative z-10">#{val}</span>
+      </span>
+    ))
+  }
+</div>
+
