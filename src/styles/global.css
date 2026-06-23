@@ -135,3 +135,27 @@ pre,
 code {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+
+/* Light mode — default */
+:root {
+  --shiki-color-text: theme(colors.neutral.800);
+  --shiki-color-background: transparent;
+}
+
+/* Dark mode — activated by .dark on <html> */
+:root.dark {
+  --shiki-color-text: theme(colors.neutral.200);
+  --shiki-color-background: transparent;
+}
+
+/* Shiki dual-theme: hide/show correct theme */
+html:not(.dark) .astro-code-dark,
+html:not(.dark) .astro-code-themes-dark {
+  display: none;
+}
+
+html.dark .astro-code-light,
+html.dark .astro-code-themes-light {
+  display: none;
+}
