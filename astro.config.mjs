@@ -9,6 +9,14 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: "https://example.com",
+  site: "https://godhani.in",
   integrations: [react()],
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: "catppuccin-latte",
+        dark: "min-dark",
+      },
+    },
+  },
 });

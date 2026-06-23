@@ -12,7 +12,7 @@ const allKnowledge = await getCollection("knowledge");
       <Heading text={"Knowledge Base"} />
       <ul class="animate-fade">
         {
-          allKnowledge.map((obj) => (
+          allKnowledge.map((obj: any) => (
             <div class="flex flex-row py-4 ml-8">
               <span class="shadow-none hover:shadow-none block text-primary w-auto">
                 {"•"}&emsp;

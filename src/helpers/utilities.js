@@ -1,4 +1,3 @@
-import { knowledgeDocs, metadata } from "./metadata";
 
 const weekday = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
 
@@ -102,23 +101,6 @@ export function dateToReadable(date) {
   const firstIndex = dateString.indexOf(" ");
   const lastIndex = dateString.lastIndexOf(" ");
   return dateString.slice(firstIndex + 1, lastIndex);
-}
-
-export function isPostAvailable(sublink, post) {
-  let listOfArticles = [];
-  if (sublink === "knowledge") {
-    listOfArticles = knowledgeDocs;
-  } else if (sublink === "posts") {
-    listOfArticles = metadata;
-  }
-  let flag = false;
-  for (let i = 0; i < listOfArticles.length; i++) {
-    if (listOfArticles[i].link === post) {
-      flag = true;
-      break;
-    }
-  }
-  return flag;
 }
 
 export const emailSVG =

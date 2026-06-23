@@ -8,7 +8,6 @@ import materialLight from "../helpers/material-light";
 import NoMatch from "../not-found";
 // import { a11yOneLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { useTheme } from "next-themes";
-import { isPostAvailable } from "../helpers/utilities";
 import CodeBlock from "./CodeBlock";
 import Header from "./Header";
 import Para from "./Para";
@@ -135,9 +134,7 @@ const BlogPost = ({ sublink, link }) => {
     );
   }, [content, sublink]);
 
-  const postAvailable = isPostAvailable(sublink, link);
-
-  if (!postAvailable) return <NoMatch />;
+  if (false) return <NoMatch />;
 
   if (!content || !mounted)
     return <div className="text-primary py-12 text-xl">Loading...</div>;

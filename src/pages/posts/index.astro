@@ -7,7 +7,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 const allPosts = await getCollection("posts");
 const allTags: any[] = [];
 const content: any[] = [];
-allPosts.forEach((e) => {
+allPosts.forEach((e: any) => {
   allTags.push(e.data.tags);
   content.push({ id: e.id, ...e.data });
 });
