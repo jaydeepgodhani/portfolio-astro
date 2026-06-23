@@ -16,16 +16,42 @@ const { pageTitle } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <Header />
     <title>{pageTitle}</title>
+    <script is:inline>
+      const doc = document.documentElement;
+
+      // Check localStorage and system preferences
+      const getTheme = () => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      };
+
+      const setTheme = (theme) => {
+        if (theme === "dark") {
+          doc.classList.add("dark");
+        } else {
+          doc.classList.remove("dark");
+        }
+        localStorage.setItem("theme", theme);
+      };
+
+      // Set initial theme immediately to prevent flash
+      setTheme(getTheme());
+    </script>
   </head>
-      <body>
-        <Navigation transition:persist />
-        <MainLayout>
-          <FramerDiv client:only>
-            <slot />
-            <Footer transition:persist />
-          </FramerDiv>
-        </MainLayout>
-      </body>
-    </ViewTransitions>
-  </head>
+  <body>
+    <Navigation transition:persist />
+    <MainLayout>
+      <FramerDiv client:only>
+        <slot />
+        <Footer transition:persist />
+      </FramerDiv>
+    </MainLayout>
+  </body>
 </html>

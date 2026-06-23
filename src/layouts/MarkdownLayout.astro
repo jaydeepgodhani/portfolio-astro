@@ -65,11 +65,39 @@ const { title, date = "", tags = [] } = Astro.props;
         @apply text-secondary;
       }
     </style>
+    <script is:inline>
+      const doc = document.documentElement;
+
+      // Check localStorage and system preferences
+      const getTheme = () => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      };
+
+      const setTheme = (theme) => {
+        if (theme === "dark") {
+          doc.classList.add("dark");
+        } else {
+          doc.classList.remove("dark");
+        }
+        localStorage.setItem("theme", theme);
+      };
+
+      // Set initial theme immediately to prevent flash
+      setTheme(getTheme());
+    </script>
   </head>
   <body>
     <Navigation />
     <div class="w-screen flex bg-bg min-h-screen flex-col items-center">
-      <div class="2xl:w-1/2 px-4 lg:w-3/4">
+      <div class="2xl:w-1/2 lg:w-3/4">
         <article
           class="wrapper transition-opacity duration-300 opacity-100 animate-fade mt-12"
         >

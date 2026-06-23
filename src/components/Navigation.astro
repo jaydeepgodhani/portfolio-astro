@@ -6,10 +6,10 @@
   class="w-screen sticky top-0 backdrop-opacity-99 backdrop-blur-sm z-10 bg-bg/70"
 >
   <div class="flex items-center flex-row justify-center">
-    <div class="w-6/12 py-4 px-4">
+    <div class="w-6/12 py-4">
       <nav>
         <ul
-          class="w-full flex flex-col text-xl items-center lg:flex-row justify-between"
+          class="w-full relative flex flex-col text-xl items-center lg:flex-row justify-between"
         >
           <li class="">
             <a
@@ -28,6 +28,29 @@
               <a href="/posts">Posts</a>
             </li>
             <li class="mx-4"><a href="/knowledge">Knowledge</a></li>
+            <li>
+              <button
+                id="themeToggle"
+                class="w-auto h-full flex items-center justify-center cursor-pointer pl-3 text-3xl"
+              >
+                {
+                  /* <svg className="h-6 w-full m-2 text-primary" viewBox="0 0 24 24">
+                <desc>Theme Switcher Icon</desc>
+                <g fill="currentColor">
+                  <path d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,20.5 L12,3.5 C16.6944204,3.5 20.5,7.30557963 20.5,12 C20.5,16.6944204 16.6944204,20.5 12,20.5 Z"></path>
+                </g>
+              </svg> */
+                }
+                <div
+                  class="bg-[rgb(var(--color-primary))] text-primary w-3 h-3 relative text-center rotate-20"
+                >
+                </div>
+                <div
+                  class="bg-[rgb(var(--color-primary))] w-3 h-3 absolute text-center rotate-155"
+                >
+                </div>
+              </button>
+            </li>
           </div>
         </ul>
       </nav>
@@ -45,4 +68,37 @@
   }
   updateTimer();
   setInterval(updateTimer, 10000);
+
+  // --- Theme toggle ---
+  // transition:persist means this component's DOM is NEVER destroyed,
+  // so attach the listener ONCE and it lives forever
+  function attachThemeToggle() {
+    const btn = document.getElementById("themeToggle");
+    if (!btn) return;
+
+    // Guard: don't attach twice
+    if (btn.dataset.listenerAttached) return;
+    btn.dataset.listenerAttached = "true";
+
+    btn.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      const next = isDark ? "light" : "dark";
+      document.documentElement.classList.toggle("dark", next === "dark");
+      localStorage.setItem("theme", next);
+    });
+  }
+
+  // Re-apply theme class after ViewTransitions swaps <html>
+  // (swap destroys the <html> classList, persisted nodes stay but html is fresh)
+  document.addEventListener("astro:after-swap", () => {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") document.documentElement.classList.add("dark");
+  });
+
+  // Attach toggle on first load
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", attachThemeToggle);
+  } else {
+    attachThemeToggle();
+  }
 </script>
