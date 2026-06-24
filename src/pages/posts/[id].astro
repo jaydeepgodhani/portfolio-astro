@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
+import TOC from "../../components/TOC.astro";
 import MarkdownLayout from "../../layouts/MarkdownLayout.astro";
 
 export async function getStaticPaths() {
@@ -11,9 +12,27 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+const filteredHeadings = headings.filter((h) => h.depth < 3);
 ---
 
-<MarkdownLayout {...post.data}>
-  <Content />
+<MarkdownLayout title={post.data.title}>
+  <article
+    slot="content"
+    class="wrapper transition-opacity duration-300 opacity-100 animate-fade mt-12"
+  >
+    <div class="flex items-center justify-between">
+      <h1>{post.data.title}</h1>
+      <span
+        >{post.data.tags.map((item: any) => <span>{item}&nbsp;</span>)}{
+          post.data.date
+        }</span
+      >
+    </div>
+    <hr class="text-secondary border" />
+    <br />
+    <br />
+    <Content />
+  </article>
+  <TOC headings={filteredHeadings} slot="headings" />
 </MarkdownLayout>

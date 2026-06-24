@@ -8,34 +8,34 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout pageTitle="Experience">
-<div class="mt-12 mb-4">
-      <Heading text={"Experience"} />
-      <div class="ml-8">
-        {
-          textBlocks.experience.map((item, id) => (
-            <div class="my-8">
-              <Block
-                header={item[0]}
-                body={item[1]}
-                footer={item[2]}
-                link={item[3]}
-              />
-              <Horizontal />
-            </div>
-          ))
-        }
-      </div>
-      <Heading text={"Skills"} />
-      <div class="ml-8">
-        <Radio text={textList.skills} />
-      </div>
-      <Heading text={"Certifications"} />
-      <div class="ml-8">
-        <Radio text={textList.certifications} />
-      </div>
-      <Heading text={"Achievements"} />
-      <div class="ml-8">
-        <Radio text={textList.achievements} />
-      </div>
+  <div class="mt-12 mb-4">
+    <Heading text={"Experience"} />
+    <div class="ml-8">
+      {
+        textBlocks.experience.map((item, id) => (
+          <div class="my-8">
+            <Block
+              header={item[0]}
+              body={item[1]}
+              footer={item[2]}
+              link={item[3]}
+            />
+            <Horizontal />
+          </div>
+        ))
+      }
     </div>
+    <Heading text={"Skills"} />
+    <div class="ml-8">
+      <Radio text={textList.skills} />
+    </div>
+    <Heading text={"Certifications"} />
+    <div class="ml-8">
+      <Radio text={textList.certifications} />
+    </div>
+    <Heading text={"Achievements"} />
+    <div class="ml-8">
+      <Radio text={textList.achievements} />
+    </div>
+  </div>
 </BaseLayout>

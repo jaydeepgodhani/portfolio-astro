@@ -21,6 +21,55 @@
   font-style: normal;
 }
 
+.wrapper h1 {
+  @apply font-heading py-6 text-primary scroll-mt-12.5 text-4xl;
+}
+.wrapper h2 {
+  @apply font-heading py-6 text-primary scroll-mt-12.5 text-3xl;
+}
+.wrapper h3 {
+  @apply font-heading py-6 text-primary scroll-mt-12.5 text-2xl;
+}
+.wrapper h4 {
+  @apply font-heading py-6 text-primary scroll-mt-12.5 text-xl;
+}
+.wrapper p {
+  @apply my-5 whitespace-pre-line text-secondary leading-7 animate-fade;
+}
+.wrapper blockquote {
+  @apply pl-4 border-l-4 bg-quote-bg border-primary my-1 animate-fade;
+}
+.wrapper pre {
+  @apply relative py-4 px-4 rounded-md bg-code-bg text-secondary text-sm break-all wrap-break-word whitespace-pre-wrap;
+}
+.wrapper code, strong {
+  @apply text-secondary animate-fade font-bold;
+}
+.wrapper li, thead, tbody, th {
+  @apply text-secondary animate-fade;
+}
+.wrapper a {
+  @apply underline italic;
+}
+.wrapper ol {
+  @apply text-secondary list-decimal pl-8;
+}
+.wrapper ul {
+  @apply text-secondary list-disc pl-8;
+}
+.wrapper table {
+  @apply text-secondary border-2 w-full animate-fade;
+}
+.wrapper tr {
+  @apply text-secondary border-b-2 animate-fade;
+}
+.wrapper td {
+  @apply text-secondary py-2 px-2 align-top animate-fade;
+}
+.wrapper hr {
+  @apply text-secondary;
+}
+
 @theme {
   --font-sans: "Quattro", sans-serif;
   --font-body: "Quattro", sans-serif;
