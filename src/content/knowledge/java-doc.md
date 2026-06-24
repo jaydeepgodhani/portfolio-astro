@@ -1,21 +1,6 @@
 ---
 title: "Java Doc"
 ---
-# Table Of Content
-- [PriorityQueue](#PriorityQueue)
-- [LinkedList](#LinkedList)
-- [Stack](#Stack)
-- [ArrayList](#ArrayList)
-- [HashMap](#HashMap)
-- [HashSet](#HashSet)
-- [Sorted Set - TreeSet](#TreeSet)
-- [Array](#Array)
-- [String](#String)
-- [Integer](#Integer)
-- [Pair](#Pair)
-- [Misc](#Misc)
-
-
 ## PriorityQueue
 
 ```java
@@ -32,9 +17,6 @@ pq.contains(34); // returns true/false
 pq.clear(); // returns nothing
 pq.toArray(); // returns Obect[]
 ```
-
-
-
 
 ## LinkedList
 
