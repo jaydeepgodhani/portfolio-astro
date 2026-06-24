@@ -32,10 +32,7 @@ export default defineConfig({
             tabIndex: -1,
             style: "text-decoration: none; font-style: normal;",
           },
-          content: {
-            type: "text",
-            value: " #",
-          },
+
         },
       ],
     ],

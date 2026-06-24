@@ -3,7 +3,7 @@ title: "JavaScript Doc"
 ---
 ## Up & Going
 
-### Variable Types
+## Variable Types
 
 ```javascript
 Number("42") // convert 42 into number type - 42
@@ -34,7 +34,7 @@ a = { b: "c" };
 typeof a; // "object"
 ```
 
-### Array
+## Array
 
 ```javascript
 var obj = {
@@ -47,7 +47,7 @@ obj[b]; // "hello world"
 obj["b"]; // 42
 ```
 
-#### Nullish operator
+### Nullish operator
 
 before running the transpiler
 
@@ -98,7 +98,7 @@ console.log(int??=10)
 
 It’s forbidden to use it with || or && without explicit parentheses.
 
-### Function
+## Function
 
 ```javascript
 function foo() {
@@ -149,7 +149,7 @@ b == c; // true
 a == b; // false
 ```
 
-### Hoisting
+## Hoisting
 
 ```javascript
 var a = 2;
@@ -176,7 +176,7 @@ foo();
 a; // 1--oops, auto global variable. default a considered as var type, and hoisted at top and that is changed to 1
 ```
 
-### Switch
+## Switch
 
 ```javascript
 switch (a) {
@@ -212,7 +212,7 @@ default:
 ```
 
 
-### Use Strict
+## Use Strict
 
 ```javascript
 function foo() {
@@ -249,7 +249,7 @@ foo();
 ```
 
 
-### Function As Value
+## Function As Value
 
 
 Not only can you pass a value (argument) to a function, but a function itself can be a value that’s assigned to variables or passed to or returned from other functions
@@ -268,7 +268,7 @@ x();
 ```
 
 
-### Immediately Invoked Function Expression (IIFE)
+## Immediately Invoked Function Expression (IIFE)
 
 ```javascript
 (function IIFE(){
@@ -301,7 +301,7 @@ x; // 42
 
 The primary reason to use an IIFE is to obtain data privacy because any variables declared within the IIFE cannot be accessed by the outside world
 
-### Closure
+## Closure
 
 
 You can think of closure as a way to `remember` and continue to access a function’s scope (its variables) even once the function has finished running
@@ -341,7 +341,7 @@ More on how this code works:
 3. When we call plusOne(3), it adds 3 (its inner y) to the 1 (remembered by x), and we get 4 as the result.
 4. When we call plusTen(13), it adds 13 (its inner y) to the 10 (remembered by x), and we get 23 as the result. Don’t worry if this seems strange and confusing at first—it can be!
 
-### Modules
+## Modules
 
 The most common usage of closure in JavaScript is the module pattern. Modules let you define private implementation details (variables, functions) that are hidden from the outside world, as well as a public API that is accessible from the outside
 
@@ -373,7 +373,7 @@ The `User()` function serves as an outer scope that holds the variables username
 The inner `doLogin()` function has a closure over username and pass word, meaning it will retain its access to them even after the `User()` function finishes running
 
 
-### This
+## This
 
 If a function has a this reference inside it, that this reference usually points to an object. But which object it points to depends on how the function was called.
 It’s important to realise that this does not refer to the function itself, as is the most common misconception
@@ -407,7 +407,7 @@ new foo(); // undefined
 3. foo.call(obj2) sets this to the obj2 object.
 4. new foo() sets this to a brand new empty object
 
-### Prototypes
+## Prototypes
 
 When you reference a property on an object, if that property doesn’t exist, JavaScript will automatically use that object’s internal prototype reference to find another object to look for the property on. You could think of this almost as a fallback if the property is missing.
 The internal prototype reference linkage from one object to its fallback happens at the time the object is created.
@@ -428,7 +428,7 @@ bar.a; // 42 <-- delegated to `foo`
 
 The a property doesn’t actually exist on the bar object, but because bar is prototype-linked to foo, JavaScript automatically falls back to looking for a on the foo object, where it’s found
 
-### Polyfilling
+## Polyfilling
 
 The word `polyfill` is used to refer to taking the definition of a newer feature and producing a piece of code that’s equivalent to the behaviour, but is able to run in older JS environments
 Number.isNaN is defined in ES6 only, so older browser can polyfill that utility like below
@@ -442,7 +442,7 @@ if (!Number.isNaN) {
 ```
 
 
-### Transpiling
+## Transpiling
 
 Babel - Transpiles ES6+ into ES5
 Traceur - Transpiles ES6, ES7, and beyond into ES5
@@ -469,7 +469,7 @@ function foo() {
 ```
 
 
-### Non-Javascript
+## Non-Javascript
 
 
 ```javascript
@@ -804,7 +804,7 @@ Lexical scope means that scope is defined by author-time decisions of where func
 
 Two mechanisms in JavaScript can "cheat" lexical scope: `eval(..)` and `with`. The former can modify existing lexical scope (at runtime) by evaluating a string of "code" that has one or more declarations in it. The latter essentially creates a whole new lexical scope (again, at runtime) by treating an object reference as a scope and that object’s properties as scoped identifiers
 
-### Hiding Variables and Function
+## Hiding Variables and Function
 
 bad design
 ```javascript
@@ -832,7 +832,7 @@ function doSomething(a) {
 doSomething( 2 ); // 15
 ```
 
-### Function As Scope
+## Function As Scope
 
 we can take any snippet of code and wrap a function around it, and that effectively `hides` any enclosed variable or function declarations from the outside scope inside that function’s inner scope.
 ```javascript
@@ -859,7 +859,7 @@ console.log( a ); // 2
 ```
 In other words, `(function foo(){ .. })` as an expression means the identifier foo is found only in the scope where the .. indicates, not in the outer scope. Hiding the name foo inside itself means it does not pollute the enclosing scope unnecessarily.
 
-### Anonymous Versus Named
+## Anonymous Versus Named
 
 ```javascript
 setTimeout( function(){
@@ -908,7 +908,7 @@ While this behavior has been specified and true of practically all standard JS e
 
 To avoid these unnecessary warnings, some devs will name their catch variables err1, err2, etc. Other devs will simply turn off the linting check for duplicate variable names
 
-### Let Declaration
+## Let Declaration
 
 declarations made with let will not hoist to the entire scope of the block they appear in. Such declarations will not observably `exist` in the block until the declaration statement
 ```javascript
@@ -950,7 +950,7 @@ Not only does let in the for loop header bind the `i` to the for loop body, but 
 }
 ```
 
-### Hoistings
+## Hoistings
 ```javascript
 a = 2;
 var a;
@@ -1040,7 +1040,7 @@ function foo() {
 }
 ```
 
-### Closures
+## Closures
 
 Closure is when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope
 
@@ -1156,9 +1156,9 @@ for (let i=1; i<=5; i++) {
 	}, i*1000 );
 }
 ```
-### Function
+## Function
 
-#### call bind apply
+### call bind apply
 
 ```javascript
 // caching
@@ -1290,7 +1290,7 @@ return func.apply(this, arguments);
 };
 ```
 
-#### Borrowing a method
+### Borrowing a method
 
 ```javascript
 function hash() {
@@ -1301,7 +1301,7 @@ hash(1, 2);
 
 We take (borrow) a join method from a regular array `([].join)` and use `[].join.call` to run it in the context of arguments
 
-#### function binding
+### function binding
 
 ```javascript
 let user = {
@@ -1404,7 +1404,7 @@ user = {
 };
 ```
 
-#### partial function
+### partial function
 
 ```javascript
 function mul(a, b) {
@@ -1424,7 +1424,7 @@ The benefit is that we can create an independent function with a readable name (
 
 For instance, we have a function `send(from, to, text)`. Then, inside a user object we may want to use a partial variant of it: `sendTo(to, text)` that sends from the current user.
 
-#### Module Pattern
+### Module Pattern
 
 ```javascript
 function CoolModule() {
@@ -1451,7 +1451,7 @@ This is the pattern in JavaScript we call module. The most common way of impleme
 
 Without the execution of the outer function, the creation of the inner scope and the closures would not occur
 
-#### Singleton Pattern
+### Singleton Pattern
 
 ```javascript
 var foo = (function CoolModule() {
@@ -1523,7 +1523,7 @@ foo.change();
 foo.identify(); // FOO MODULE
 ```
 
-#### Dynamic Scope
+### Dynamic Scope
 
 ```javascript
 function foo() {
@@ -1823,7 +1823,7 @@ bar.call( obj2 ); // 2, not 3!
 
 The arrow-function created in `foo()` lexically captures whatever `foo()`s this is at its call-time. Since foo() was this-bound to `obj1`, bar (a reference to the returned arrow-function) will also be this- bound to `obj1`. The lexical binding of an arrow-function cannot be overridden (even with new!)
 
-### OBJECTS
+## OBJECTS
 
 Objects come in two forms: the declarative (literal) form and the constructed form
 
@@ -1920,7 +1920,7 @@ myArray.length; // 4
 myArray[3]; // "baz"
 ```
 
-#### Object Copy
+### Object Copy
 
 ```javascript
 function anotherFunction() { /*..*/ }
@@ -1957,7 +1957,7 @@ newObj.c === anotherArray; // true
 newObj.d === anotherFunction; // true
 ```
 
-### Property Descriptors
+## Property Descriptors
 
 ```javascript
 var myObject = {
@@ -2054,13 +2054,13 @@ delete myObject.a; // silently failed
 myObject.a; // 2
 ```
 
-### Enumerable
+## Enumerable
 
 this characteristic controls whether a property will show up in certain object-property enumerations, such as the for..in loop. Set enumerable to false to keep the property from showing up in such enumerations, even though it’s still completely accessible. Set it to true to include the property in enumerations
 
-### Immutability
+## Immutability
 
-#### Object constant
+### Object constant
 
 By combining `writable:false` and `configurable:false`, you can essentially create a constant (cannot be changed, redefined, or deleted) as an object property
 
@@ -2073,7 +2073,7 @@ Object.defineProperty( myObject, "FAVORITE_NUMBER", {
 });
 ```
 
-#### Prevent extensions
+### Prevent extensions
 
 If you want to prevent an object from having new properties added to it, but otherwise leave the rest of the object’s properties alone, call `Object.preventExtensions(..)`
 
@@ -2086,19 +2086,19 @@ myObject.b = 3;
 myObject.b; // undefined , silently failed but will give TypeError in strict
 ```
 
-#### Seal
+### Seal
 
 `Object.seal(..)` creates a "sealed" object, which means it takes an existing object and essentially calls `Object.preventExtensions(..)` on it, but also marks all its existing properties as `configurable:false`.
 
 So, not only can you not add any more properties, but you also cannot reconfigure or delete any existing properties (though you can still modify their values)
 
-#### Freeze
+### Freeze
 
 It's nothing but `Object.seal(..) + writable:false`
 
 This approach is the highest level of immutability that you can attain for an object itself, as it prevents any changes to the object or to any of its direct properties (though, as mentioned earlier, the contents of any referenced other objects are unaffected)
 
-### Getter & Setter
+## Getter & Setter
 
 ```javascript
 var myObject = {
@@ -2122,7 +2122,7 @@ myObject.a = 2;
 myObject.a; // 4
 ```
 
-#### Existence of Property in Object
+### Existence of Property in Object
 
 ```javascript
 var myObject = {
@@ -2176,7 +2176,7 @@ var myArray = [ 1, 2, 3 ];
 ## CLASS
 ------
 
-### Constructor
+## Constructor
 
 ```javascript
 class CoolGuy {
@@ -2192,7 +2192,7 @@ Joe = new CoolGuy( "jumping rope" )
 Joe.showOff() // Here's my trick: jumping rope
 ```
 
-### Inheritance
+## Inheritance
 
 ```javascript
 class Vehicle {
@@ -2572,7 +2572,7 @@ let b = +prompt("The second number?", "");
 alert( a + b );
 ```
 
-#### Generators
+### Generators
 
 ```javascript
 function* generateSequence() {
@@ -2665,7 +2665,7 @@ foo( a );
 a; // [4,5,6,7] not [1,2,3,4]
 ```
 
-#### Strings
+### Strings
 
 ```javascript
 function sum(a, b) {
@@ -2732,7 +2732,7 @@ foo( 10, undefined ); // 2 10 11 10 undefined
 foo( 10, null ); // 2 10 null 10 null
 ```
 
-#### Try Catch exception
+### Try Catch exception
 
 try...catch works synchronously
 
@@ -2797,7 +2797,7 @@ function func() {
 alert( func() ); // first works alert from finally, and then this one
 ```
 
-### destructring
+## destructring
 
 ```javascript
 let arr = ["John", "Smith"]
@@ -2994,7 +2994,7 @@ let end = Date.now(); // done
 alert( `The loop took ${end - start} ms` ); // subtract numbers, not dates
 ```
 
-### arrow function
+## arrow function
 
 ```javascript
 let func = (arg1, arg2, ..., argN) => expression;
@@ -3069,7 +3069,7 @@ The arrow => doesn’t create any binding. The function simply doesn’t have th
 2. Do not have arguments variable
 3. Can't be called with new
 
-##### Access arguments in regular vs arrow function
+#### Access arguments in regular vs arrow function
 
 You can access all the arguments passed to a regular function using the `arguments` object. The `arguments` object is an array-like object that holds all the arguments passed to the function
 ```javascript
@@ -3088,7 +3088,7 @@ const logNumbers = (...args) => {
 logNumbers(8, 24) // [8, 24]
 ```
 
-##### Duplicate named parameters
+#### Duplicate named parameters
 When a regular function has duplicate names in the parameters, the last parameter with the duplicate name will take precedence, But in "strict mode", using a duplicate named parameter will result in a syntax error
 ```javascript
 function exampleFunction(a, b, a) {
@@ -3105,7 +3105,7 @@ const exampleFunction = (a, b, a) => {
 
 exampleFunction("first", "second", "third")
 ```
-##### Function Hoisting
+#### Function Hoisting
 Regular functions are hoisted to the top. And you can access and call them even before they are declared.
 ```javascript
 regularFunction()
@@ -3122,7 +3122,7 @@ const arrowFunction = () => {
   console.log("This is an arrow function.")
 }
 ```
-##### this binding
+#### this binding
 ```javascript
 const myObject = {
   regularExample: function() {
@@ -3150,7 +3150,7 @@ And you can use arrow functions in any of the following cases:
 - when you need to maintain the lexical scope of `this`
 - for non-method functions (in most cases)
 
-### Promise
+## Promise
 
 ```javascript
 let promise = new Promise(function(resolve, reject) {
@@ -3408,11 +3408,11 @@ new Promise(function() {
 }); // no catch to handle the error
 ```
 
-### Promise API
+## Promise API
 
 There are 6 static methods in the Promise class. We’ll quickly cover their use cases here.
 
-#### Promise.all
+### Promise.all
 
 Let’s say we want many promises to execute in parallel and wait until all of them are ready.
 
@@ -3498,7 +3498,7 @@ Promise.all([
 ]).then(alert); // 1, 2, 3
 ```
 
-#### Promise.allSettled
+### Promise.allSettled
 
 `Promise.all` rejects as a whole if any promise rejects. That’s good for "all or nothing" cases, when we need all results successful to proceed:
 
@@ -3542,7 +3542,7 @@ So for each promise we get its status and value/error.
 
 Similar to Promise.all, but waits only for the first settled promise and gets its result (or error).
 
-#### Promise.race
+### Promise.race
 
 ```javascript
 Promise.race([
@@ -3554,7 +3554,7 @@ new Promise((resolve, reject) => setTimeout(() => resolve(3), 3000))
 
 The first promise here was fastest, so it became the result. After the first settled promise "wins the race", all further results/errors are ignored.
 
-#### Promise.any
+### Promise.any
 
 Similar to Promise.race, but waits only for the first fulfilled promise and gets its result. If all of the given promises are rejected, then the returned promise is rejected with `AggregateError` – a special error object that stores all promise errors in its errors property.
 
@@ -3647,7 +3647,7 @@ if we run it, we’ll see Promise Failed! first and then caught.
 
 that unhandledrejection is generated when the microtask queue is complete: the engine examines promises and, if any of them is in the “rejected” state, then the event triggers
 
-### Async / Await
+## Async / Await
 
 The word `async` before a function means one simple thing: a function always returns a promise. Other values are wrapped in a resolved promise automatically
 
@@ -3694,7 +3694,7 @@ function f() {
 f();
 ```
 
-### Currying
+## Currying
 
 ```javascript
 function curry(func) {
@@ -3823,7 +3823,7 @@ for multi-word properties camelCase is used
 `document.body.style.backgroundColor = prompt('background color?', 'green')`
 `button.style.MozBorderRadius = '5px';`
 
-#### event
+### event
 
 A handler can be set in HTML with an attribute named `on<event>`.
 For instance, to assign a `click` handler for an `input`, we can use `onclick`, like here
@@ -3898,7 +3898,7 @@ elem.onclick = function(event) {
 </script>
 ```
 
-#### bubbling
+### bubbling
 
 ```html
 <style>
@@ -3934,7 +3934,7 @@ Note the differences from `this` (=`event.currentTarget`):
 - `event.target` – is the “target” element that initiated the event, it doesn’t change through the bubbling process.
 - `this` – is the “current” element, the one that has a currently running handler on it
 
-#### capturing
+### capturing
 
 ```html
 <style>
@@ -3969,7 +3969,7 @@ The `event.stopPropagation()` method and its sibling `event.stopImmediateProp
 
 In other words, normally the event goes first down (“capturing”) and then up (“bubbling”). But if `event.stopPropagation()` is called during the capturing phase, then the event travel stops, no bubbling will occur
 
-#### event delegation
+### event delegation
 
 ```html
 Counter: <input type="button" value="1" data-counter>
@@ -4005,7 +4005,7 @@ document.addEventListener('click', function(event) {
 </script>
 ```
 
-#### Defer
+### Defer
 
 The `defer` attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. The script loads "in the background", and then runs when the DOM is fully built.
 
@@ -4049,7 +4049,7 @@ In other words, `async` scripts load in the background and run when ready. The
 
 We can create a script and append it to the document dynamically using JavaScript. The script starts loading as soon as it’s appended to the document `(*)`. Dynamic scripts behave as "async" by default.
 
-### fetch
+## fetch
 
 A typical fetch request consists of two `await` calls
 ```javascript
@@ -4187,7 +4187,7 @@ try {
 
 `AbortController` is scalable. It allows to cancel multiple fetches at once.
 
-#### URL
+### URL
 
 ```javascript
 let url1 = new URL('https://javascript.info/profile/admin');
@@ -4264,7 +4264,7 @@ alert(url); // https://google.com/search?q=Rock%26Roll
 
 So we should use only `encodeURIComponent` for each search parameter, to correctly insert it in the URL string
 
-#### XMLHttpRequest
+### XMLHttpRequest
 
 `XMLHttpRequest` is a built-in browser object that allows to make HTTP requests in JavaScript.
 We need something that `fetch` can’t do yet, e.g. to track upload progress, other than that `fetch` is all we need
@@ -4295,7 +4295,7 @@ xhr.onerror = function() {
 };
 ```
 
-#### Long Polling
+### Long Polling
 
 ```javascript
 async function subscribe() {
@@ -4332,7 +4332,7 @@ If messages come very often, then the chart of requesting-receiving messages, pa
 Every message is a separate request, supplied with headers, authentication overhead, and so on.
 So, in this case, another method is preferred, such as [Websocket](https://javascript.info/websocket) or [Server Sent Events](https://javascript.info/server-sent-events).
 
-#### WebSockets
+### WebSockets
 
 To open a websocket connection, we need to create `new WebSocket` using the special protocol `ws` in the url
 
@@ -4466,7 +4466,7 @@ socket.onclose = event => {
 
 WebSocket by itself does not include reconnection, authentication and many other high-level mechanisms. So there are client/server libraries for that, and it’s also possible to implement these capabilities manually.
 
-#### Server Sent Events
+### Server Sent Events
 
 The [Server-Sent Events](https://html.spec.whatwg.org/multipage/comms.html#the-eventsource-interface) specification describes a built-in class `EventSource`, that keeps connection with the server and allows to receive events from it.
 

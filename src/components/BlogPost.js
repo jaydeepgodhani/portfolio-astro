@@ -140,7 +140,7 @@ const BlogPost = ({ sublink, link }) => {
     return <div className="text-primary py-12 text-xl">Loading...</div>;
 
   return (
-    <article className="transition-opacity duration-300 opacity-100 animate-fade mt-12">
+    <article className="transition-opacity duration-300 opacity-100 animate-fade mt-8">
       {markdownRender}
     </article>
   );
