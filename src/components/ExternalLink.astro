@@ -1,5 +1,5 @@
 ---
-const { hyperlink } = Astro.props;
+const { hyperlink, title } = Astro.props;
 ---
 
 <a
@@ -7,6 +7,7 @@ const { hyperlink } = Astro.props;
   href={hyperlink}
   target="_blank"
   rel="noopener noreferrer"
+  aria-label={title}
 >
   <slot />
 </a>
