@@ -14,7 +14,6 @@ export async function getStaticPaths() {
 const { kn } = Astro.props;
 const { Content, headings } = await render(kn);
 const filteredHeadings = headings.filter((h) => h.depth < 3);
-console.log(filteredHeadings);
 ---
 
 <MarkdownLayout title={kn.data.title}>

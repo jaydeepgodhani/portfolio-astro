@@ -2,12 +2,24 @@
 const { headings } = Astro.props;
 ---
 
-{
-  headings.map((h: any) => {
-    if (h.depth === 1) {
-      return <ul>{h}</ul>;
-    } else if (h.depth === 2) {
-      return <ul class="pl-4">{h}</ul>;
+<div>
+  <ul>
+    {
+      headings.map((h: any) => {
+        if (h.depth === 1) {
+          return (
+            <li>
+              <a href={`#${h.slug}`}>{h.text}</a>
+            </li>
+          );
+        } else if (h.depth === 2) {
+          return (
+            <li class="pl-4">
+              <a href={`#${h.slug}`}>{h.text}</a>
+            </li>
+          );
+        }
+      })
     }
-  })
-}
+  </ul>
+</div>
