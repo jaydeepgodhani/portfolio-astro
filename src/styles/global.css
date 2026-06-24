@@ -136,20 +136,7 @@ code {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
-/* Light mode — default */
-:root {
-  --shiki-color-text: theme(colors.neutral.800);
-  --shiki-color-background: transparent;
-}
-
-/* Dark mode — activated by .dark on <html> */
-:root.dark {
-  --shiki-color-text: theme(colors.neutral.200);
-  --shiki-color-background: transparent;
-}
-
-/* Shiki dual-theme: hide/show correct theme */
+/* Shiki dual-theme: hide/show correct theme
 html:not(.dark) .astro-code-dark,
 html:not(.dark) .astro-code-themes-dark {
   display: none;
@@ -158,4 +145,25 @@ html:not(.dark) .astro-code-themes-dark {
 html.dark .astro-code-light,
 html.dark .astro-code-themes-light {
   display: none;
+} */
+
+/* Force span colors to switch based on theme */
+html:not(.dark) .astro-code span[style] {
+  color: var(--shiki-light) !important;
+  background-color: transparent !important;
+  font-weight: normal;
+}
+
+html.dark .astro-code span[style] {
+  color: var(--shiki-dark) !important;
+  background-color: transparent !important;
+  font-weight: normal;
+}
+
+html:not(.dark) .astro-code {
+  background-color: #f4f2f0 !important;
+}
+
+html.dark .astro-code {
+  background-color: #1d1f21 !important;
 }
