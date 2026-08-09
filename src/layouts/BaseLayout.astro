@@ -4,6 +4,7 @@ import { FramerDiv } from "../components/FramerDiv";
 import Header from "../components/Header.astro";
 import MainLayout from "../components/MainLayout.astro";
 import Navigation from "../components/Navigation.astro";
+import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 const { pageTitle } = Astro.props;
 ---
@@ -45,6 +46,7 @@ const { pageTitle } = Astro.props;
       // Set initial theme immediately to prevent flash
       setTheme(getTheme());
     </script>
+    <ClientRouter />
   </head>
   <body>
     <Navigation transition:persist />

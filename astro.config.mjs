@@ -11,6 +11,10 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: "https://godhani.in",
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "viewport"
+  },
   integrations: [react()],
   markdown: {
     shikiConfig: {
