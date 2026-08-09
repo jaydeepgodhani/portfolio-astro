@@ -5,6 +5,6 @@
     "buildCommand": "echo 'Skipping build, using pre-built dist'"
   },
   "deploy": {
-    "startCommand": "npm serve dist -l $PORT"
+    "startCommand": "npx serve dist -l $PORT"
   }
 }
