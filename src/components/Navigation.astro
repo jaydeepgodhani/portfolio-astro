@@ -62,43 +62,43 @@
   import { showTime } from "../helpers/utilities";
 
   function updateTimer() {
-    const countdownElement = document.getElementById("countdown")!;
+    const countdownElement = document.getElementById("countdown");
     if (!countdownElement) return;
     countdownElement.textContent = showTime();
   }
+
+  // Initial render
   updateTimer();
+
+  // Keep it fresh. This script only runs once, so the interval is created once.
   setInterval(updateTimer, 10000);
 
+  // On client-side navigation (View Transitions) the new page's #countdown
+  // is an empty element. Fill it right away instead of waiting for the next tick.
+  // after-swap fires before the new page is painted, so there's no empty flash.
+  document.addEventListener("astro:after-swap", updateTimer);
+  document.addEventListener("astro:page-load", updateTimer);
+
   // --- Theme toggle ---
-  // transition:persist means this component's DOM is NEVER destroyed,
-  // so attach the listener ONCE and it lives forever
-  function attachThemeToggle() {
-    const btn = document.getElementById("themeToggle");
-    if (!btn) return;
+  // With View Transitions the nav DOM is replaced on every navigation, so a
+  // listener attached directly to #themeToggle is lost after the first swap.
+  // Event delegation on `document` survives swaps, so it is registered once.
+  document.addEventListener("click", (e) => {
+    const target = e.target as Element | null;
+    if (!target?.closest("#themeToggle")) return;
 
-    // Guard: don't attach twice
-    if (btn.dataset.listenerAttached) return;
-    btn.dataset.listenerAttached = "true";
-
-    btn.addEventListener("click", () => {
-      const isDark = document.documentElement.classList.contains("dark");
-      const next = isDark ? "light" : "dark";
-      document.documentElement.classList.toggle("dark", next === "dark");
+    const isDark = document.documentElement.classList.contains("dark");
+    const next = isDark ? "light" : "dark";
+    document.documentElement.classList.toggle("dark", next === "dark");
+    try {
       localStorage.setItem("theme", next);
-    });
-  }
-
-  // Re-apply theme class after ViewTransitions swaps <html>
-  // (swap destroys the <html> classList, persisted nodes stay but html is fresh)
-  document.addEventListener("astro:after-swap", () => {
-    const theme = localStorage.getItem("theme");
-    if (theme === "dark") document.documentElement.classList.add("dark");
+    } catch {}
   });
 
-  // Attach toggle on first load
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", attachThemeToggle);
-  } else {
-    attachThemeToggle();
-  }
+  // The swap replaces <html>, so re-apply the saved theme to the NEW document
+  // before it is painted (avoids a flash of the wrong theme).
+  document.addEventListener("astro:after-swap", (e: any) => {
+    const theme = localStorage.getItem("theme");
+    e.newDocument.documentElement.classList.toggle("dark", theme === "dark");
+  });
 </script>

@@ -129,19 +129,14 @@ export const paragraphs = {
 export const textBlocks = {
   experience: [
     [
-      "SDE III, SDE II (2y), Intern (6m)",
-      "Walmart / Jan20...",
+      "Walmart",
+      "[Jan 20] SDE III, SDE II (2y), Intern (6m)",
       "Working as Full stack developer as well as Automation Engineer, got Bravo award for exceptional contribution and multiple badges as well.",
     ],
     [
-      "Associate Software Engineer",
-      "Accenture / Oct15 - Oct16",
+      "Accenture",
+      "[Oct15 - Oct16] Associate Software Engineer",
       "Worked as a Developer, this position involved Data Conversion, Report Generation and Developing Interfaces in Oracle Applications",
-    ],
-    [
-      "Homo Sapien",
-      "Earth / Jan94...",
-      "Living life at fullest. Making mistakes, forming bonds, creating memories along the way.",
     ],
   ],
   corpprojects: [

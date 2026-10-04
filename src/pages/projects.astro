@@ -1,7 +1,6 @@
 ---
-import Block from "../components/Block.astro";
 import Heading from "../components/Heading.astro";
-import Horizontal from "../components/Horizontal.astro";
+import Three from "../components/Three.astro";
 import { textBlocks } from "../helpers/utilities";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
@@ -13,13 +12,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         {
           textBlocks.corpprojects.map((item, id) => (
             <div>
-              <Block
+              <Three
                 header={item[0]}
                 body={item[1]}
                 footer={item[2]}
-                link={item[3]}
               />
-              <Horizontal />
             </div>
           ))
         }
@@ -29,13 +26,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         {
           textBlocks.personalprojects.map((item, id) => (
             <div>
-              <Block
+              <Three
                 header={item[0]}
                 body={item[1]}
                 footer={item[2]}
                 link={item[3]}
               />
-              <Horizontal />
             </div>
           ))
         }
